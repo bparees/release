@@ -1,0 +1,16 @@
+ref:
+  as: openshift-endurance-check
+  from: cli
+  commands: openshift-endurance-check-commands.sh
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100Mi
+  credentials:
+    - namespace: test-credentials
+      name: endurance-sa
+      mount_path: /etc/appci/kubeconfig
+  env:
+    - name: OPENSHIFT_VERSION
+  documentation: |-
+    The endurance check step checks whether the endurance cluster is healthy or not, if not it tears it down, gathers artifacts, and installs a fresh cluster.

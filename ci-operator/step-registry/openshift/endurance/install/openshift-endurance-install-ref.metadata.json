@@ -1,0 +1,10 @@
+{
+    "path": "openshift-endurance-install-ref.yaml",
+    "owners": {
+        "approvers": [
+            "bparees"
+        ],
+        "reviewers": [
+        ]
+    }
+}

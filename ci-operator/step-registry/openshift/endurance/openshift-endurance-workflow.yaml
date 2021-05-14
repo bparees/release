@@ -1,0 +1,9 @@
+workflow:
+  as: openshift-endurance
+  steps:
+    test:
+    - ref: openshift-endurance-check
+    - ref: openshift-endurance-teardown
+    - ref: openshift-endurance-install
+  documentation: |-
+    The Openshift Endurance workflow attempts to maintain and verify the health of a long running openshift cluster on AWS.

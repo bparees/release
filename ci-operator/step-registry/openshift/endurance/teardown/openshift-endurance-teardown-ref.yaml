@@ -1,0 +1,20 @@
+ref:
+  as: openshift-endurance-teardown
+  from: cli
+  commands: openshift-endurance-teardown-commands.sh
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100Mi
+  credentials:
+    - namespace: test-credentials
+      name: endurance-sa
+      mount_path: /etc/appci/kubeconfig
+    - namespace: test-credentials
+      name: aws-openshift-llc-account-credentials
+      mount_path: /etc/cloud-credentials
+  env:
+    - name: AWS_SHARED_CREDENTIALS_FILE
+      default: /etc/cloud-credentials/.awscred
+  documentation: |-
+    The endurance teardown step destroys the cluster if requested.  It also performs must-gather if requested.  Otherwise it no-ops.

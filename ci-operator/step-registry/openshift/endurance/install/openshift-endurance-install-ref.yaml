@@ -1,0 +1,26 @@
+ref:
+  as: openshift-endurance-install
+  from: cli
+  commands: openshift-endurance-install-commands.sh
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100Mi
+  credentials:
+    - namespace: test-credentials
+      name: endurance-sa
+      mount_path: /etc/appci
+    - namespace: test-credentials
+      name: aws-openshift-llc-account-credentials
+      mount_path: /etc/cloud-credentials
+  env:
+    - name: CLUSTER_TYPE
+      default: aws
+    - name: AWS_REGION
+      default: us-east-2
+    - name: BASE_DOMAIN
+      default: llc.devcluster.openshift.com      
+    - name: AWS_SHARED_CREDENTIALS_FILE
+      default: /etc/cloud-credentials/.awscred
+  documentation: |-
+    The endurance install step checks whether a reinstall was requested and if so, installs a new endurance clusters and published the new cluster credentials.

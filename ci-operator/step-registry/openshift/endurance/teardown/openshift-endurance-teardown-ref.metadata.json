@@ -1,0 +1,10 @@
+{
+    "path": "openshift-endurance-teardown-ref.yaml",
+    "owners": {
+        "approvers": [
+            "bparees"
+        ],
+        "reviewers": [
+        ]
+    }
+}
